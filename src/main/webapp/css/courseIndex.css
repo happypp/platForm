@@ -1,0 +1,19 @@
+.content{  width: 80%;min-height: 1000px;margin: 0 auto;overflow: auto;padding-top: 5%;}
+.middle-box{
+    width:62%;
+    background-color: #fff;
+    float: right;
+    margin-top: 4%;
+    border-left: 1px solid #ccc;
+    margin-right: 10%;}
+
+/*轮播海报*/
+#myCarousel .carousel-inner .item img{height: 400px;width: 962px;}
+
+/*img_msg*/
+/*#characters{display: none;}*/
+#characters span{display: inline-block;margin-top:5px;text-align: center;}
+
+.ui-menu-item {
+    z-index: 999;
+}

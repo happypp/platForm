@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="https://git.coding.net/Happlypp/platForm_2.git" uploadOnCheckin="aaa2c22d-82e3-4cc5-9613-62481e3851c4">
+    <serverData>
+      <paths name="https://git.coding.net/Happlypp/platForm_2.git">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myUploadOnCheckinName" value="https://git.coding.net/Happlypp/platForm_2.git" />
+  </component>
+</project>

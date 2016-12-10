@@ -1,0 +1,52 @@
+/* CSS Document */
+body{margin:0;padding:0;}
+/*置顶*/
+#up{position: fixed;bottom: 20px;right: 10px;z-index: 999}
+#up a{padding: 10px;text-decoration: none;color: #262626;}
+#up a:hover{background-color: red;color: white;opacity: .5}
+
+#footer {
+    width: 100%;
+    height: 190px;
+    background-color: #000;
+    clear: both;
+    overflow: hidden;
+}
+
+#footer #link a {color: #C8CDD2;}
+
+#img_log img{background-color: #5A5D5F;cursor: pointer;position: relative; width: 35px;height: 35px;margin-top: 5%;margin-left: 1%;}
+#img_log img:hover{background-color: #C8CDD2;}
+
+/*微信二维码接口*/
+#img_log {
+    /*position: relative;*/
+}
+
+.WeChatInterface {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    right: 17%;
+    bottom: 120px;
+}
+
+.WeChatInterface img {
+    width: 150px;
+    height: 150px;
+    z-index: 999;
+}
+
+/*倒三角形*/
+/*.WeChatInterface:after{*/
+/*content: '';*/
+/*display: block;*/
+/*position: absolute;*/
+/*width: 0;*/
+/*height: 0;*/
+/*border: 10px solid transparent;*/
+/*border-top: 10px solid #5A5D5F;*/
+/*left: 45%;*/
+/*}*/
+
+

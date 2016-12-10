@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="aaa2c22d-82e3-4cc5-9613-62481e3851c4" name="https://git.coding.net/Happlypp/platForm_2.git" url="https://git.coding.net/Happlypp/platForm_2.git">
+        <fileTransfer host="https://git.coding.net/Happlypp/platForm_2.git" port="21">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>

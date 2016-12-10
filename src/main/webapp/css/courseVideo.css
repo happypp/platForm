@@ -1,0 +1,50 @@
+.middle-box{height: 1000px;}
+#video{}
+
+#video video {
+    width: 100%;
+    height: 450px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #000;
+    margin-top: 55px;
+}
+#courseList{width: 77%;float: left;}
+#courseInfo{width:20%;float:right;margin-right: 40px;}
+
+.courseMenu hr {
+    width: 80%;
+    margin-top: -22px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 2px solid #ccc;
+}
+
+/*courseList 菜单*/
+#courseList .courseMenu{height: 80px;}
+#courseList .courseMenu ul{height: 80px;list-style-type: none;padding:10px 5px 0 100px;}
+#courseList .courseMenu ul li{float: left;margin-top: 10px;}
+#courseList .courseMenu ul li a{text-decoration: none;font-size: 20px;font-weight: bold;color: #000;padding: 20px 30px;}
+#courseList .courseMenu ul li a:hover{color:red;}
+
+#courseList .courseMenu ul li a.courseMenuActive{border-bottom: 1px solid red;color:red;}
+
+/*courseList列表*/
+.courseLists{width: 80%;margin: 0 0 0 98px;}
+.courseLists:hover{cursor: hand;}
+.courseLists{margin-bottom: 20px;}
+
+ .panel-body ul,li{padding: 0;margin: 0;}
+ .panel-body{padding: 0;}
+ .panel-body ul li{margin: 10px 0;padding-left: 35px;height: 40px;line-height: 40px;border-bottom: 1px solid #E5EAEE;}
+ .panel-body ul li:hover{background-color: #EDF1F2;}
+ .panel-body ul li a{color:#787D82;}
+/*去除panel的边框*/
+.panel-group .panel {
+    margin-bottom: 0;
+    border-radius: 4px;
+    border: none;
+}
+
+
+.coursePost {width: 70%;margin: 0 0 0 110px;}

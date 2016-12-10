@@ -1,0 +1,79 @@
+/*去除input的换行效果*/
+input[type=file] {
+     display: inline-block;
+}
+/*表单样式*/
+form{
+    width: 80%;
+    margin: 0 auto;
+    padding: 100px 0 300px;
+    float: left;
+}
+/*提交按钮样式*/
+#userMsgSave input[type="button"]{
+    background-color: #39b94e;
+    height: 40px;
+    color: #fff;
+    border-radius: 20px;
+}
+#userMsgSave input[type="button"]:hover{
+    background-color: #2EAD43;
+    color: #fff;
+}
+#userPwdEdit input[type="button"]{
+    height: 40px;
+    background-color: #000;
+    color:#fff;
+    border-radius:20px;
+}
+#userPwdEdit input[type="button"]:hover{
+    background-color: #2D2D2D;
+    color:#fff;
+}
+
+
+
+/*各input之间的间距*/
+#main form .form-group {
+    margin-bottom: 35px;
+}
+
+
+#main-left{
+    width: 15%;
+    float: left;
+    margin-top: 100px;
+}
+#main-left ul{
+    margin: 0;
+    padding: 0;
+}
+#main-left ul li{
+    height: 66px;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 1px solid #ccc;
+    line-height: 66px;
+    cursor: pointer;
+    padding-left: 10px;
+    margin-top: 5px;
+}
+#main-left ul li:hover{
+    color:indianred;
+}
+.liActive{
+    color:indianred;
+}
+
+.xcConfirm .popBox {
+    position: fixed;
+    left: 31%;
+    background-color: #ffffff;
+    z-index: 2147000001;
+    width: 40%;
+    height: 255px;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #535e66;
+    top: 20%;
+}
