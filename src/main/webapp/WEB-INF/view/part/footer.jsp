@@ -6,8 +6,7 @@
 	// 为顶部导航栏确定当前所在版块
 	var id = $(".middle-box").attr("data-pageid");
 	var li = ".top-box #menu ul li:nth-child(" + id + ")";
-	$(li).find("a").addClass("active_1");
-	$(li).find("a").css("color","white");
+	$(li).find("a").addClass("active_1").css("color","white");
 </script>
 
 <div id="up" style="display: none;">
