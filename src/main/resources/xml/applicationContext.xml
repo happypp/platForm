@@ -86,4 +86,5 @@
 	
 	<task:annotation-driven />
 
+	<import resource="classpath:xml/spring-cxf.xml" />
 </beans>
