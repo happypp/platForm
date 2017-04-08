@@ -22,7 +22,7 @@ public class Page {
 		initNavItems();
 	}
 	
-	public void initNavItems() {  //算出页面显示的页面 最多10条
+	private void initNavItems() {  //算出页面显示的页面 最多10条
 		int length = Constant.LIST_PAGES;  //以10页为基准
 		if(pageCount <= length) {
 			for (int i = 1; i <= pageCount; i++) {  // 1.2.3.4.5.6.7.8.9.10
