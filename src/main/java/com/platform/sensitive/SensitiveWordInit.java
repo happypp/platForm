@@ -114,7 +114,9 @@ public class SensitiveWordInit {
     private Set<String> readSensitiveWordFile() throws Exception {
         Set<String> set = null;
         //TODO 需要手动修改敏感词汇库
-        String path = System.getProperty("user.dir") + "\\src\\main\\resources\\CensorWords.txt";
+        String path = SensitiveWordInit.class.getResource("/").getPath() + "CensorWords.txt";
+//        String path = System.getProperty("user.dir") + "\\src\\main\\resources\\CensorWords.txt";
+//        System.out.println(path);
         File file = new File(path);    //读取文件
         InputStreamReader read = new InputStreamReader(new FileInputStream(file), ENCODING);
         try {
