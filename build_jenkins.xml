@@ -2,18 +2,11 @@
 <project name="platform" basedir="./" default="package-all">
     <!-- 定义属性 -->
     <property name="app.name" value="platform"/>
-    <property environment="env"/>
-    <!-- ant的环境变量(linux需要配置） -->
-    <property name="ant.home" value="${env.ANT_HOME}"/>
-    <!-- java的环境变量(linux需要配置） -->
-    <property name="java.home" value="${env.JAVA_HOME}"/>
     <!--  项目结构目录定义  -->
     <property name="src.dir" value="${basedir}/src/main/java"/>
     <property name="resource.dir" value="${basedir}/src/main/resources"/>
     <property name="web.dir" value="${basedir}/src/main/webapp"/>
     <property name="lib.dir" value="${web.dir}/WEB-INF/lib"/>
-    <!-- 指明svnant任务插件用到的jar文件的路径 -->
-    <property name="svnant.lib" value="${ant.home}/lib"/>
     <!-- 指明编译时需要用到的其他jar文件的路径（需要在当前文件下创建该目录） -->
     <property name="other.lib" value="${basedir}/other_lib"/>
     <!-- 本地编译路径 -->
@@ -31,12 +24,6 @@
 
     <path id="classpath">
         <fileset dir="${lib.dir}">
-            <include name="**/*.jar"/>
-        </fileset>
-    </path>
-    <!-- path to the svnant libraries. Usually they will be located in ANT_HOME/lib -->
-    <path id="svnant_classpath">
-        <fileset dir="${svnant.lib}">
             <include name="**/*.jar"/>
         </fileset>
     </path>
@@ -73,7 +60,7 @@
         </copy>
         <echo message="**** compile sources to classes dir ****"></echo>
         <javac srcdir="${src.dir}" destdir="${build.classes}"
-               target="1.7" source="1.7" encoding="UTF-8" fork="true"
+               target="1.6" source="1.6" encoding="UTF-8" fork="true"
                memoryInitialSize="512m" memoryMaximumSize="1024m"
                debug="true" debuglevel="lines,vars,source"
                includeantruntime="true">
@@ -92,11 +79,5 @@
         </war>
         <echo message="${war_name}.war包生成成功！" ></echo>
     </target>
-    <!-- 检查是否存在已经部署的旧的目标war包。 -->
-    <target name="old-war-exist-check">
-        <echo message="检查是否存在旧的同名war文件..." ></echo>
-        <available file="${build.dir}/${war_name}.war"  property="old-war-isexist"/>
-    </target>
-
 
 </project>
