@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="platform" basedir="./" default="compile-jdk6">
+<project name="platform" basedir="./" default="package-all">
     <!-- 定义属性 -->
     <property name="app.name" value="platform"/>
     <!--  项目结构目录定义  -->
@@ -80,4 +80,8 @@
         <echo message="${war_name}.war包生成成功！" ></echo>
     </target>
 
+    <!-- 全量备份，同时重新部署-->
+    <target name="package-all" depends="generate-war">
+        <echo message="全量备份，打包到指定路径。"></echo>
+    </target>
 </project>
