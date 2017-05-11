@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="platform" basedir="./" default="package-all">
+<project name="platform" basedir="./" default="compile-jdk6">
     <!-- 定义属性 -->
     <property name="app.name" value="platform"/>
     <!--  项目结构目录定义  -->
