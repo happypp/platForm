@@ -39,7 +39,7 @@ function login(){
         return false;
     }
     //var admin = emailValue.split("@")[0];
-    if ("Administrator@vip.com" == emailValue || "administrator@vip.com" == emailValue) {
+    if ("Adminstrator@vip.com" == emailValue || "administrator@vip.com" == emailValue) {
         var url = getProjectRootPath() + "/valPassWord";
         $.post(url,{
             'email':emailValue,

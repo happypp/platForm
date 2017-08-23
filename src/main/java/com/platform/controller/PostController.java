@@ -74,7 +74,7 @@ public class PostController {
         PostVo postVo = null;
         for(Post post : posts){
             List<RPostVo> rPostVos = new ArrayList<RPostVo>();
-            User uuser = uuser = userService.find("from User where id = ?", new Object[]{post.getUid()}).get(0);
+            User uuser = userService.find("from User where id = ?", new Object[]{post.getUid()}).get(0);
             String userAvatar = "";
             if(uuser!=null){
                 userService.countermand(uuser);

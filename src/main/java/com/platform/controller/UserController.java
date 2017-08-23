@@ -267,7 +267,7 @@ public class UserController {
         user.setPassword(Util.encryptMD5(user.getPassword()));
         userService.save(user);
         //TODO 路劲写死了
-        Session session = MailUtils.createSession("smtp.163.com", "pp957655440@163.com", "ppllm969926449");
+        Session session = MailUtils.createSession("smtp.163.com", "pp957655440@163.com", "pp969926449");
         String path = request.getServerName();
         if(path.equals("localhost")){
             path = request.getServerName() + ":8080";
@@ -399,7 +399,7 @@ public class UserController {
         Integer emailToUser(@RequestParam String email,HttpSession session1){
         session1.removeAttribute("code");
         String code = Util.getUUID();
-        Session session = MailUtils.createSession("smtp.163.com", "pp957655440@163.com", "ppllm969926449");
+        Session session = MailUtils.createSession("smtp.163.com", "pp957655440@163.com", "pp969926449");
         Mail mail = new Mail("pp957655440@163.com", email, "找回密码","该<span style='color:red;'>"+code+"</span>是重新设置密码的验证码~!");
         try {
             MailUtils.send(session, mail);

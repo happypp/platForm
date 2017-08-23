@@ -15,13 +15,34 @@
 	<!-- 加载数据库属性配置文件 -->
 	<context:property-placeholder location="classpath:/properties/db.properties" />
 
+	<bean id="dataSource" class="com.p6spy.engine.spy.P6DataSource" >
+		<constructor-arg>
+			<ref bean ="dataSourceTarget"/>
+		</constructor-arg>
+	</bean>
+
+
+	<!--<bean id ="dataSourceTarget" class ="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">-->
+		<!--<property name="driverClass" value="com.mysql.jdbc.Driver" />-->
+		<!--<property name="jdbcUrl" value="jdbc\:mysql\://localhost\:3306/platform" />-->
+		<!--<property name="user" value="root" />-->
+		<!--<property name="password" value="123456"/>-->
+		<!--<property name="maxPoolSize" value="40"></property>-->
+		<!--<property name="minPoolSize" value="1"></property>-->
+		<!--<property name="initialPoolSize" value="1"></property>-->
+		<!--<property name="maxIdleTime" value="20"></property>-->
+	<!--</bean>-->
+
+
+
+
 	<!-- 数据库连接池c3p0配置 -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<bean id="dataSourceTarget" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
-		<property name="jdbcUrl" value="${db.url}"></property>
-		<property name="driverClass" value="${db.driverClassName}"></property>
-		<property name="user" value="${db.username}"></property>
-		<property name="password" value="${db.password}"></property>
+		<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/platform"></property>
+		<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+		<property name="user" value="root"></property>
+		<property name="password" value="123456"></property>
 		<property name="maxPoolSize" value="40"></property>
 		<property name="minPoolSize" value="1"></property>
 		<property name="initialPoolSize" value="1"></property>
