@@ -4,14 +4,14 @@ $(function(){
 	//		$(this).css("background-color","#FFFFFF","border-color","#000");
 	//	});
 	//
-	$("#search-area").find("input").blur(function () {
+	$("#search-area").find("input").blur(() => {
 		var courseText = $("#search-area .search-input").val();
 		if (courseText === null || courseText === "") {
 			$(this).animate({width: "0"}, "slow");
 		}
 	});
 
-	$("#search-area").find("a").hover(function () {
+	$("#search-area").find("a").hover(() => {
 		$(this).css("color", "#EBEEFF");
 	}, function () {
 		$(this).css("color", "#505A62");
@@ -22,7 +22,7 @@ $(function(){
 	// 邮箱输入框自动完成
 	var mailSuffix = ["@qq.com", "@sina.com", "@163.com", "@gmail.com", "@126.com", "@vip.com", "@hotmail.com", "@foxmail.com", "@sohu.com", "@aliyun.com", "@yahoo.com"];
 	// 自动完成.改变候选项
-	var auto = function(mailSuffix){
+	var auto = (mailSuffix) => {
 		var hints = new Array(mailSuffix.length);
 		var str = $("#emailInput").val();
 		str = str.split("@")[0];
@@ -32,7 +32,7 @@ $(function(){
 		return hints;
 	};
 	$("#emailInput").autocomplete({
-		source: function(request, response){
+		source: (request, response) => {
 			response(auto(mailSuffix));
 		}
 	});
@@ -51,11 +51,11 @@ $(function(){
 	}
 
 	// 登出
-	$(".userContent .userLogOut").click(function(){
+	$(".userContent .userLogOut").click(() => {
 
 		if (isLogin()) {
 			var url = getProjectRootPath() + "/user/logout";
-			$.post(url, null, function (data) {
+			$.post(url, null, (data) => {
 				if (data == 1) {
 					location.reload();
 				}
@@ -64,7 +64,7 @@ $(function(){
 	});
 
 	// 登录警告信息.关闭监听事件
-	$("#myLogin .c-close").click(function(){
+	$("#myLogin .c-close").click(() => {
 		$("#myLogin .alert").hide();
 	});
 
@@ -76,7 +76,7 @@ $(function(){
 	//});
 
 	//header置顶
-	$(window).scroll(function(){
+	$(window).scroll(() => {
 		var top = $(window).scrollTop();
 		if(top > 70){
 			$("#nav").css("position","fixed");
@@ -92,7 +92,7 @@ $(function(){
 	});
 	var avatarBorder = null;
 	/*用户隐藏信息*/
-	$("#avatar").hover(function(){
+	$("#avatar").hover(() => {
 		$(this).css("border","2px solid red");
 		$("#userInfo").stop(true);
 		$("#userInfo").fadeIn("fast");
@@ -102,7 +102,7 @@ $(function(){
 		avatarBorder = setTimeout(function(){
 			$("#avatar").css("border","2px solid #000");
 		},400);
-		$("#userInfo").hover(function(){
+		$("#userInfo").hover(() => {
 			clearTimeout(avatarBorder);
 			$("#avatar").css("border","2px solid red");
 			$(this).stop(true);
@@ -114,18 +114,18 @@ $(function(){
 	});
 
 	//为搜素框绑定ent键盘事件
-	$("#search-area .search-input").bind("keydown",function(event){
+	$("#search-area .search-input").bind("keydown",(event) => {
 		if(event.keyCode == 13){
 			var courseText = $("#search-area .search-input").val();
 			if (courseText.trim().length == 0) {
 			} else {
-				location.href = getProjectRootPath() + "/search/index/" + courseText + "/1";
+				location.href = getProjectRootPath() + "/search/index/" + encodeURI(encodeURI((courseText))) + "/1";
 			}
 		}
 	});
 
 	//为登录框绑定ENT键盘事件
-	$("#pwdInput").bind("keydown",function(event){
+	$("#pwdInput").bind("keydown",(event) => {
 		if(event.keyCode == 13){
 			login();
 		}
@@ -134,7 +134,7 @@ $(function(){
 });
 
 // 登录
-function login(){
+login = () => {
 
 	var $warn = $("#myLogin .alert strong");
 	if ($("#emailInput").val() == "" || $("#pwdInput").val() == "") {
@@ -160,20 +160,20 @@ function login(){
 			showErrorShane();
 		}
 	});
-}
+};
 
 //错误抖动效果
-function showErrorShane() {
+showErrorShane = () => {
 	var ErrorShane = $("div[role='alert']");
 	if (ErrorShane.css("display") === 'block') {
 		ErrorShane.animate({left: '5.9785px'}, 50);
 		ErrorShane.animate({left: '-5.9785px'}, 50);
 		ErrorShane.animate({left: '0'}, 50);
 	}
-}
+};
 
 //搜索课程
-function searchCourse(){
+searchCourse = () => {
 	var width = $("#search-area").find("input").css("width");
 	var inputAnimate = $("#search-area").find("input");
 	var courseText = $("#search-area .search-input").val();
@@ -188,7 +188,7 @@ function searchCourse(){
 		if (courseText.trim().length == 0) {
 			inputAnimate.animate({width: "0"}, "slow");
 		} else {
-			location.href = getProjectRootPath() + "/search/index/" + courseText + "/1";
+			location.href = getProjectRootPath() + "/search/index/" + encodeURI(encodeURI((courseText))) + "/1";
 		}
 	}
-}
+};

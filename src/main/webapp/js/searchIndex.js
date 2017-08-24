@@ -11,7 +11,7 @@ function searchCourseTwo(){
     var courseText = $("#searchInput input").val();
     if(courseText.trim().length == 0){
     }else{
-        location.href = getProjectRootPath() + "/search/index/"+courseText+"/1";
+        location.href = getProjectRootPath() + "/search/index/"+encodeURI(encodeURI((courseText)))+"/1";
     }
 }
 

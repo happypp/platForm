@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 /**
@@ -24,15 +25,16 @@ public class SearchController {
 
 
     @RequestMapping("/index/{courseText}/{pageIndex}")
-    public ModelAndView searchUI(@PathVariable String courseText,@PathVariable Integer pageIndex){
+    public ModelAndView searchUI(@PathVariable String courseText,@PathVariable Integer pageIndex) throws UnsupportedEncodingException {
         ModelAndView mv = new ModelAndView("searchIndex");
-        List<Course> courseList = courseService.getPageCourse(pageIndex, Constant.LIST_COURSE, courseText);
+        String course = java.net.URLDecoder.decode(courseText,"UTF-8");
+        List<Course> courseList = courseService.getPageCourse(pageIndex, Constant.LIST_COURSE, course);
         Long count = courseService.count("select count(id) from Course where title like ?",new Object[]{"%"+courseText+"%"});
         Page page = new Page(pageIndex,count.intValue());
         mv.addObject("page",page);
-        mv.addObject("urlSubfix","/search/index/"+courseText);
+        mv.addObject("urlSubfix","/search/index/"+course);
         mv.addObject("courseList",courseList);
-        mv.addObject("courseText",courseText.toUpperCase());
+        mv.addObject("courseText",course.toUpperCase());
         return mv;
     }
 }
