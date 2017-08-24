@@ -7,10 +7,7 @@ import com.platform.entities.Chapter;
 import com.platform.entities.Course;
 import com.platform.entities.User;
 import com.platform.entities.Video;
-import com.platform.service.ChapterService;
-import com.platform.service.CourseService;
-import com.platform.service.UserService;
-import com.platform.service.VideoService;
+import com.platform.service.*;
 import com.platform.util.Util;
 import com.platform.vo.ChapterVideoVo;
 import org.springframework.stereotype.Controller;
@@ -42,6 +39,8 @@ public class UserController {
     private VideoService videoService;
     @Resource
     private CourseService courseService;
+    @Resource
+    private RedisService redisService;
 
 
     /**
@@ -69,7 +68,13 @@ public class UserController {
         User user = new User();
         user.setEmail(email);
         user.setPassword(Util.encryptMD5(password));
-        User result = userService.login(user);
+        //使用redis存储user对象
+        User result = redisService.getUserRedis(user.getEmail());
+        if (result == null) {
+            result = userService.login(user);
+            redisService.setUserRedis(result);
+        }
+//        User result = userService.login(user);
         if (result != null) {
             if(result.getVideoinfo() != null){
                 int count = videoService.count("select count(*) from Video where videoname = ?",new Object[]{result.getVideoinfo()}).intValue();

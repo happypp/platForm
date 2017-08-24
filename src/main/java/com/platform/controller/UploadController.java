@@ -42,6 +42,8 @@ public class UploadController {
     private LeveCourseService leveCourseService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private RedisService redisService;
 
     @RequestMapping("/uploadUI")
     public ModelAndView uploadUI(){
@@ -191,6 +193,8 @@ public class UploadController {
         userService.executeHql("update User set name = ?,avatar = ? where id =?",new Object[]{name,avatarUrl,uid});
         uploadAvatarImg(avatar.getInputStream(), avatarUrl);
         User user = userService.get(uid);
+        /**将更新之后的user替换之前redis中缓存过的user对象*/
+        redisService.setUserRedis(user);
         session.setAttribute("user",user);
         return mv;
     }

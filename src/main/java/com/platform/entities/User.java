@@ -1,13 +1,14 @@
 package com.platform.entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
  * Created by Administrator on 2015/11/11.
  */
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable{
     private Integer id;
     private String email;
     private String name;

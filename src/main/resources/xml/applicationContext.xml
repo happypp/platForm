@@ -108,4 +108,6 @@
 	<task:annotation-driven />
 
 	<import resource="classpath:xml/spring-cxf.xml" />
+	<!--spring redis 配置-->
+	<import resource="classpath:xml/spring-redis.xml" />
 </beans>
