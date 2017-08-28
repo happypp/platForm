@@ -19,7 +19,11 @@ public class RedisServiceImpl implements RedisService{
     @Resource
     private RedisTemplate<String,User> redisTemplate;
 
-
+    /**
+     * 获取redis数据
+     * @param email
+     * @return
+     */
     @Override
     public User getUserRedis(String email) {
         ValueOperations<String,User> valueOperations = redisTemplate.opsForValue();
@@ -27,9 +31,26 @@ public class RedisServiceImpl implements RedisService{
         return user;
     }
 
+    /**
+     * 更新redis数据
+     * @param user
+     */
     @Override
     public void setUserRedis(User user) {
         ValueOperations<String,User> valueOperations = redisTemplate.opsForValue();
         valueOperations.set(user.getEmail(),user);
+    }
+
+    /**
+     * 删除redis中的数据
+     * @param email
+     */
+    @Override
+    public void delUserRedis(String email) {
+        ValueOperations<String, User> valueOperations = redisTemplate.opsForValue();
+        User user = valueOperations.get(email);
+        if(user != null){
+            redisTemplate.delete(email);
+        }
     }
 }

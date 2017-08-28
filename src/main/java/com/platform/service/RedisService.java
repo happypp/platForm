@@ -10,4 +10,6 @@ public interface RedisService {
     public User getUserRedis(String email);
 
     public void setUserRedis(User user);
+
+    public void delUserRedis(String email);
 }
