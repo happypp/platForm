@@ -10,6 +10,7 @@ import com.platform.entities.Video;
 import com.platform.service.*;
 import com.platform.util.Util;
 import com.platform.vo.ChapterVideoVo;
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -31,6 +32,9 @@ import java.util.regex.Pattern;
 @Controller
 @RequestMapping("/user")
 public class UserController {
+
+    private Logger logger = Logger.getLogger(UserController.class);
+
     @Resource
     private UserService userService;
     @Resource
@@ -68,11 +72,20 @@ public class UserController {
         User user = new User();
         user.setEmail(email);
         user.setPassword(Util.encryptMD5(password));
+        User result = null;
         //使用redis存储user对象
-        User result = redisService.getUserRedis(user.getEmail());
+        try{
+            result = redisService.getUserRedis(user.getEmail());
+        }catch (Exception e){
+            logger.error(e.getMessage());
+        }
         if (result == null) {
             result = userService.login(user);
-            redisService.setUserRedis(result);
+            try{
+                redisService.setUserRedis(result);
+            }catch (Exception e){
+                logger.error(e.getMessage());
+            }
         }
 //        User result = userService.login(user);
         if (result != null) {

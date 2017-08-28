@@ -92,7 +92,7 @@ $(function(){
 	});
 	var avatarBorder = null;
 	/*用户隐藏信息*/
-	$("#avatar").hover(() => {
+	$("#avatar").hover(function(){
 		$(this).css("border","2px solid red");
 		$("#userInfo").stop(true);
 		$("#userInfo").fadeIn("fast");
@@ -102,7 +102,7 @@ $(function(){
 		avatarBorder = setTimeout(function(){
 			$("#avatar").css("border","2px solid #000");
 		},400);
-		$("#userInfo").hover(() => {
+		$("#userInfo").hover(function(){
 			clearTimeout(avatarBorder);
 			$("#avatar").css("border","2px solid red");
 			$(this).stop(true);

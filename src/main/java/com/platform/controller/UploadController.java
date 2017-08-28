@@ -11,6 +11,7 @@ import com.qiniu.api.config.Config;
 import com.qiniu.api.io.IoApi;
 import com.qiniu.api.io.PutExtra;
 import com.qiniu.api.rs.PutPolicy;
+import org.apache.log4j.Logger;
 import org.json.JSONException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,8 @@ import java.util.List;
 @Controller
 @RequestMapping("/upload")
 public class UploadController {
+
+    private Logger logger = Logger.getLogger(UploadController.class);
 
     @Autowired
     private CourseService courseService;
@@ -194,7 +197,11 @@ public class UploadController {
         uploadAvatarImg(avatar.getInputStream(), avatarUrl);
         User user = userService.get(uid);
         /**将更新之后的user替换之前redis中缓存过的user对象*/
-        redisService.setUserRedis(user);
+        try{
+            redisService.setUserRedis(user);
+        }catch (Exception e){
+            throw new RuntimeException(e.getMessage());
+        }
         session.setAttribute("user",user);
         return mv;
     }
