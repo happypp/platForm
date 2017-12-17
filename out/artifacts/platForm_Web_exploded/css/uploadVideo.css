@@ -1,0 +1,26 @@
+#uploadContent {
+     width: 80%;
+     margin: 0 auto;
+     min-height: 900px;
+     padding-top: 88px;
+}
+input[type=file] {
+     display: inline-block;
+}
+
+.spin-icon{position: absolute;top: 350px;left: 500px;display: none;}
+
+.masking{width: 100%;height: 100%;background-color: rgba(0,0,0,.7);z-index: 999;}
+
+.xcConfirm .popBox {
+     position: fixed;
+     left: 31%;
+     background-color: #ffffff;
+     z-index: 2147000001;
+     width: 40%;
+     height: 255px;
+     border-radius: 5px;
+     font-weight: bold;
+     color: #535e66;
+     top: 20%;
+}
