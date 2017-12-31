@@ -1,13 +1,13 @@
 <component name="libraryTable">
   <library name="Maven: org.aspectj:aspectjtools:1.6.11">
     <CLASSES>
-      <root url="jar://E:/m2/org/aspectj/aspectjtools/1.6.11/aspectjtools-1.6.11.jar!/" />
+      <root url="jar://E:/program/m2/org/aspectj/aspectjtools/1.6.11/aspectjtools-1.6.11.jar!/" />
     </CLASSES>
     <JAVADOC>
-      <root url="jar://E:/m2/org/aspectj/aspectjtools/1.6.11/aspectjtools-1.6.11-javadoc.jar!/" />
+      <root url="jar://E:/program/m2/org/aspectj/aspectjtools/1.6.11/aspectjtools-1.6.11-javadoc.jar!/" />
     </JAVADOC>
     <SOURCES>
-      <root url="jar://E:/m2/org/aspectj/aspectjtools/1.6.11/aspectjtools-1.6.11-sources.jar!/" />
+      <root url="jar://E:/program/m2/org/aspectj/aspectjtools/1.6.11/aspectjtools-1.6.11-sources.jar!/" />
     </SOURCES>
   </library>
 </component>
