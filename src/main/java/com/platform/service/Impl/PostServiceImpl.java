@@ -14,7 +14,7 @@ public class PostServiceImpl extends BaseDaoImpl<Post> implements
 
 	@Override
 	public List<Post> lReply(int sid,int m) {
-		String hql = "select new Post(id,sid,uid,max(time)) from Post where sid=? group by id,sid,uid order by max(time) desc";
+		String hql = "select new Post(id,sid,uid,max(time)) from Post where sid=? group by uid order by max(time) desc";
 		List<Post> list = (List<Post>) this.getCurrentSession()
 				.createQuery(hql).setParameter(0, sid).setFirstResult(0).setMaxResults(m).list();
 		return list;
