@@ -1,8 +1,10 @@
 // JavaScript Document
 $("#email").blur(function(){
-    var url = "/user/registVal/email?email="+$("#email").val();
+    var url = "/user/registVal/email";
     url = getProjectRootPath() + url;
-    $.post(url, null, function(data){
+    $.post(url, {
+        email : $("#email").val()
+    }, function(data){
         if(data == ""){
             $("#email-info").attr("class","glyphicon  form-control-feedback glyphicon-ok right");
             $("#email-msg").text("");
@@ -15,9 +17,11 @@ $("#email").blur(function(){
 
 
 $("#name").blur(function(){
-    var url = "/user/registVal/name?name="+$("#name").val();
+    var url = "/user/registVal/name";
     url = getProjectRootPath() + url;
-    $.post(url, null, function(data){
+    $.post(url, {
+        name : $("#name").val()
+    }, function(data){
         if(data == ""){
             $("#name-info").attr("class","glyphicon  form-control-feedback glyphicon-ok right");
             $("#name-msg").text("");
